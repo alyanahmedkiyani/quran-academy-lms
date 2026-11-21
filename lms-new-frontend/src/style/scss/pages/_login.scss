@@ -1,0 +1,223 @@
+@use "../variables" as *;
+@use "../utils/mixins" as *;
+
+.auth-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    .auth-brand-mark {
+        background: linear-gradient(135deg, $primary 0%, $indigo 100%);
+        color: $white;
+        font-weight: 800;
+        font-size: 1.5rem;
+        line-height: 1;
+        padding: 8px 14px;
+        border-radius: 10px;
+        letter-spacing: 0.05em;
+    }
+    .auth-brand-name {
+        font-weight: 800;
+        font-size: 1.7rem;
+        color: $gray-900;
+        letter-spacing: 0.18em;
+    }
+}
+
+.auth-card {
+    box-shadow: 0 20px 45px -16px rgba(10, 27, 57, 0.16) !important;
+    .form-label {
+        font-weight: 500;
+        color: $gray-700;
+        font-size: 0.875rem;
+    }
+    .form-control:focus,
+    .pass-group:focus-within {
+        border-color: $primary;
+        box-shadow: 0 0 0 3px $primary-transparent;
+    }
+    .btn:focus-visible {
+        outline: 2px solid $primary;
+        outline-offset: 2px;
+    }
+}
+
+.auth-role-banner {
+    border-radius: 12px;
+    border: 1px solid;
+    padding: 14px 16px;
+}
+
+.auth-portal-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+}
+
+$auth-accent-colors: primary, success, info, danger;
+@each $accent in $auth-accent-colors {
+    .auth-portal-icon-#{$accent} {
+        background: var(--#{$accent}-transparent);
+        color: var(--#{$accent});
+    }
+    .auth-role-banner-#{$accent} {
+        background: var(--#{$accent}-transparent);
+        border-color: var(--#{$accent});
+    }
+}
+
+.auth-side-panel {
+    &.auth-side-panel-brand {
+        background: linear-gradient(135deg, $primary 0%, $indigo 100%);
+    }
+    &.auth-side-panel-illustration {
+        background: $light;
+    }
+}
+.auth-side-panel-copy {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.auth-bg{
+    .otp-input {
+        input {
+          &:focus {
+            border: 1px solid $primary;
+            outline: none;
+            transition: all 0.7s;
+          }
+        }
+    }
+    .login-or{
+        text-align: center;
+        font-size: 15px;
+        color: #6C7688;
+        font-weight: 500;
+        margin: 5px 0;
+        padding: 10px 0 0px;
+        position: relative;
+        &::after{
+            content: "";
+            width: 100%;
+            border-top: 1px solid var(--cf-border-color);
+            position: absolute;
+            top: 50%;
+            right: 0;
+        }
+        &::before{
+            content: "";
+            width: 100%;
+            border-top: 1px solid var(--cf-border-color);
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+        .span-or{
+            background-color: $white;
+            padding: 0 10px;
+            z-index: 9;
+            position: relative;
+        }
+    }
+    .hover-a {
+        position: relative;
+        color: $primary;
+        &:after {
+            content:"";
+            height: 2px;
+            width: 100%;
+            background: $primary;
+            @include transform(scale(0));
+            @include transition(all 0.3s ease);
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+        }
+        &:hover:after {
+            @include transform(scale(1));
+        }
+        &:hover {
+            color: $primary;
+        }
+    }
+    .element-01{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 45%;
+
+    }
+    .element-02{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 45%;
+    }
+    .error-images img {
+        max-width: 410px;
+    }
+    .otp-input input {
+        border: 1px solid var(--cf-border-color);
+        width: 60px;
+        height: 60px;
+    }
+    .login-backgrounds {
+        background: #ECEDF7;
+
+        .cover-img{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+    .authentication-card {
+        padding: 10px 40px;
+        .authen-overlay-item {
+            border-radius: 15px;
+            padding: 40px 40px 0px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(13px);
+            border: 1px solid #06aed4b3;
+            .authen-head{
+                width: 100%;
+                max-width: 474px;
+                margin: auto;
+                p{
+                    
+                }
+            }
+            .authen-overlay-img {
+                max-width: 400px;
+            }
+        }
+    }
+    }  
+}
+.auth-bg-custom{
+    background: url(../../../../public/assets/img/auth/auth-bg.jpg);
+    background-size: cover;
+}
+.ti-eye-slash::before{
+    content: '\ea9a';
+}
+.input-icon {
+    .form-control {
+      padding-left: 30px;
+    }
+ }
+.otp-input {
+    input {
+      border: 2px solid $gray-200;
+      &.active {
+        border: 2px solid $primary;
+      }
+    }
+}

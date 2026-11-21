@@ -1,0 +1,12 @@
+services:
+  voice-test:
+    build: .
+    ports: ["8000:8000"]
+    env_file: [.env]
+    volumes:
+      - ./data:/srv/data                       # alerts, transcripts and clips
+      - hf-cache:/root/.cache/huggingface      # speech model is downloaded once
+    # GPU server: install the NVIDIA container toolkit, then uncomment and set WHISPER_DEVICE=cuda, WHISPER_COMPUTE=float16
+    # deploy: {resources: {reservations: {devices: [{driver: nvidia, count: all, capabilities: [gpu]}]}}}
+volumes:
+  hf-cache:

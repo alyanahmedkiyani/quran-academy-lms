@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: lms-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: alisher.1
+      MYSQL_DATABASE: LMSystem
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+  ai-moderation:
+    build:
+      context: ../ai-moderation-service
+      dockerfile: Dockerfile
+    container_name: lms-ai-moderation
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - LMS_API_URL=http://localhost:8080
+      - LMS_WEBHOOK_SECRET=qalms_ai_webhook_secret_key
+      - AI_SERVICE_URL=http://localhost:8000
+    volumes:
+      - ../ai-moderation-service/data:/srv/data
+      - hf-cache:/root/.cache/huggingface
+    # On GPU servers: uncomment below for NVIDIA CUDA acceleration
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+volumes:
+  mysql_data:
+  hf-cache:

@@ -1,0 +1,146 @@
+{"text": "my number is 0300 1234567", "lang": "en", "label": "pii", "pii": "phone", "note": "", "id": "T001"}
+{"text": "call me on 0345-1234567", "lang": "en", "label": "pii", "pii": "phone", "note": "", "id": "T002"}
+{"text": "you can reach me on +92 321 1234567", "lang": "en", "label": "pii", "pii": "phone", "note": "", "id": "T003"}
+{"text": "my whatsapp is 03211234567", "lang": "en", "label": "pii", "pii": "phone", "note": "", "id": "T004"}
+{"text": "zero three zero zero one two three four five six seven", "lang": "en", "label": "pii", "pii": "phone", "note": "spoken digits", "id": "T005"}
+{"text": "o three double o one two three four five six seven", "lang": "en", "label": "pii", "pii": "phone", "note": "spoken, double o", "id": "T006"}
+{"text": "my number is zero three four five, one two three, four five six seven", "lang": "en", "label": "pii", "pii": "phone", "note": "spoken in groups", "id": "T007"}
+{"text": "my number is zero three double zero nine eight seven six five four three", "lang": "en", "label": "pii", "pii": "phone", "note": "spoken, double zero", "id": "T008"}
+{"text": "میرا نمبر 0300 1234567 ہے", "lang": "ur", "label": "pii", "pii": "phone", "note": "", "id": "T009"}
+{"text": "میرا نمبر صفر تین صفر صفر ایک دو تین چار پانچ چھ سات ہے", "lang": "ur", "label": "pii", "pii": "phone", "note": "spoken Urdu digits", "id": "T010"}
+{"text": "میرا واٹس ایپ نمبر ہے 03211234567", "lang": "ur", "label": "pii", "pii": "phone", "note": "", "id": "T011"}
+{"text": "میرا نمبر ۰۳۰۰۱۲۳۴۵۶۷ ہے", "lang": "ur", "label": "pii", "pii": "phone", "note": "Arabic-Indic digits", "id": "T012"}
+{"text": "mera number hai 0300 1234567", "lang": "ro", "label": "pii", "pii": "phone", "note": "", "id": "T013"}
+{"text": "mera whatsapp number zero teen zero zero ek do teen char paanch chay saat hai", "lang": "ro", "label": "pii", "pii": "phone", "note": "spoken Roman Urdu", "id": "T014"}
+{"text": "my email is ali.khan@gmail.com", "lang": "en", "label": "pii", "pii": "email", "note": "", "id": "T015"}
+{"text": "email me at sara_99@yahoo.com", "lang": "en", "label": "pii", "pii": "email", "note": "", "id": "T016"}
+{"text": "my email is ali khan at gmail dot com", "lang": "en", "label": "pii", "pii": "email", "note": "spoken", "id": "T017"}
+{"text": "my id is ali at the rate gmail dot com", "lang": "en", "label": "pii", "pii": "email", "note": "at the rate", "id": "T018"}
+{"text": "میرا ای میل ali ایٹ جی میل ڈاٹ کام ہے", "lang": "ur", "label": "pii", "pii": "email", "note": "spoken Urdu", "id": "T019"}
+{"text": "my instagram is @ali_khan99", "lang": "en", "label": "pii", "pii": "social", "note": "", "id": "T020"}
+{"text": "add me on snapchat", "lang": "en", "label": "pii", "pii": "social", "note": "", "id": "T021"}
+{"text": "my whatsapp id is alikhan", "lang": "en", "label": "pii", "pii": "social", "note": "", "id": "T022"}
+{"text": "follow me on instagram", "lang": "en", "label": "pii", "pii": "social", "note": "", "id": "T023"}
+{"text": "mujhe instagram pe add karo", "lang": "ro", "label": "pii", "pii": "social", "note": "", "id": "T024"}
+{"text": "میرا انسٹاگرام آئی ڈی ali_khan ہے", "lang": "ur", "label": "pii", "pii": "social", "note": "", "id": "T025"}
+{"text": "my address is house 12 street 5 sector G-11 Islamabad", "lang": "en", "label": "pii", "pii": "address", "note": "", "id": "T026"}
+{"text": "I live at house number 45 block C Gulshan colony", "lang": "en", "label": "pii", "pii": "address", "note": "", "id": "T027"}
+{"text": "my home address is flat 3 near the main market Lahore", "lang": "en", "label": "pii", "pii": "address", "note": "", "id": "T028"}
+{"text": "my address is 25 main road Karachi", "lang": "en", "label": "pii", "pii": "address", "note": "", "id": "T029"}
+{"text": "میرا پتہ یہ ہے مکان نمبر بارہ گلی پانچ", "lang": "ur", "label": "pii", "pii": "address", "note": "", "id": "T030"}
+{"text": "ہمارا گھر مکان نمبر 25 سیکٹر ایف الیون میں ہے", "lang": "ur", "label": "pii", "pii": "address", "note": "", "id": "T031"}
+{"text": "mera ghar house number 12 gali 4 mein hai", "lang": "ro", "label": "pii", "pii": "address", "note": "", "id": "T032"}
+{"text": "give me your number", "lang": "en", "label": "pii", "pii": "phone", "note": "request", "id": "T033"}
+{"text": "what is your phone number", "lang": "en", "label": "pii", "pii": "phone", "note": "request", "id": "T034"}
+{"text": "can I have your whatsapp", "lang": "en", "label": "pii", "pii": "phone", "note": "request", "id": "T035"}
+{"text": "send me your instagram", "lang": "en", "label": "pii", "pii": "social", "note": "request", "id": "T036"}
+{"text": "tell me your email address", "lang": "en", "label": "pii", "pii": "email", "note": "request", "id": "T037"}
+{"text": "what's your home address", "lang": "en", "label": "pii", "pii": "address", "note": "request", "id": "T038"}
+{"text": "send me your photo", "lang": "en", "label": "pii", "pii": "photo", "note": "request", "id": "T039"}
+{"text": "share your location with me", "lang": "en", "label": "pii", "pii": "address", "note": "request", "id": "T040"}
+{"text": "can I get your mobile number", "lang": "en", "label": "pii", "pii": "phone", "note": "request", "id": "T041"}
+{"text": "please send me your picture", "lang": "en", "label": "pii", "pii": "photo", "note": "request", "id": "T042"}
+{"text": "please send ur whatsapp number", "lang": "en", "label": "pii", "pii": "phone", "note": "request, chat slang", "id": "T043"}
+{"text": "apna number do", "lang": "ro", "label": "pii", "pii": "phone", "note": "request", "id": "T044"}
+{"text": "apna WhatsApp number bhejo", "lang": "ro", "label": "pii", "pii": "phone", "note": "request", "id": "T045"}
+{"text": "aap ka phone number kya hai", "lang": "ro", "label": "pii", "pii": "phone", "note": "request", "id": "T046"}
+{"text": "apni photo bhejo", "lang": "ro", "label": "pii", "pii": "photo", "note": "request", "id": "T047"}
+{"text": "tumhara whatsapp number mujhe do", "lang": "ro", "label": "pii", "pii": "phone", "note": "request", "id": "T048"}
+{"text": "اپنا نمبر دو", "lang": "ur", "label": "pii", "pii": "phone", "note": "request", "id": "T049"}
+{"text": "اپنا واٹس ایپ نمبر بھیجیں", "lang": "ur", "label": "pii", "pii": "phone", "note": "request", "id": "T050"}
+{"text": "آپ کا موبائل نمبر کیا ہے", "lang": "ur", "label": "pii", "pii": "phone", "note": "request", "id": "T051"}
+{"text": "اپنی تصویر بھیجو", "lang": "ur", "label": "pii", "pii": "photo", "note": "request", "id": "T052"}
+{"text": "اپنا پتہ بتاؤ", "lang": "ur", "label": "pii", "pii": "address", "note": "request", "id": "T053"}
+{"text": "اپنا ای میل دیں", "lang": "ur", "label": "pii", "pii": "email", "note": "request", "id": "T054"}
+{"text": "آپ کا انسٹاگرام آئی ڈی کیا ہے", "lang": "ur", "label": "pii", "pii": "social", "note": "request", "id": "T055"}
+{"text": "open page number 25", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T056"}
+{"text": "what is your roll number", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T057"}
+{"text": "read ayah number 255", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T058"}
+{"text": "your lesson number is five", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T059"}
+{"text": "tell me the number of the surah", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T060"}
+{"text": "what is the next number", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T061"}
+{"text": "give me the answer to question number three", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T062"}
+{"text": "do not use your phone during class", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T063"}
+{"text": "please put your phone away", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T064"}
+{"text": "turn off your mobile", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T065"}
+{"text": "your phone is ringing", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T066"}
+{"text": "what are you doing on your phone", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T067"}
+{"text": "the surah has 286 verses", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T068"}
+{"text": "recite ayah 255 and 256", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T069"}
+{"text": "the year is 2026", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T070"}
+{"text": "the fee is 15000 rupees per month", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T071"}
+{"text": "there are 114 surahs and 30 juz", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T072"}
+{"text": "send the homework on whatsapp", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T073"}
+{"text": "join the whatsapp group for homework", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T074"}
+{"text": "the instagram video was nice", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T075"}
+{"text": "I saw it on facebook", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T076"}
+{"text": "I live in Lahore", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T077"}
+{"text": "where are you from", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T078"}
+{"text": "we will study sector three of the book", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T079"}
+{"text": "my house is far from the school", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T080"}
+{"text": "the address of the school is on the website", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T081"}
+{"text": "house number is not needed", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T082"}
+{"text": "send me your homework photo", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T083"}
+{"text": "send me a photo of your notebook", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T084"}
+{"text": "show me your notebook", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T085"}
+{"text": "show your face please", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T086"}
+{"text": "can you hear me", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T087"}
+{"text": "what is your name", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T088"}
+{"text": "what is your father name", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T089"}
+{"text": "your answer is correct", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T090"}
+{"text": "send me your answer", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T091"}
+{"text": "tell me your lesson", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T092"}
+{"text": "email the teacher after class", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T093"}
+{"text": "my phone battery is low", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T094"}
+{"text": "I will call you tomorrow", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T095"}
+{"text": "your number is next", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T096"}
+{"text": "what is your class", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T097"}
+{"text": "please open your camera", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T098"}
+{"text": "read from line number seven", "lang": "en", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T099"}
+{"text": "صفحہ نمبر پچیس کھولیں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T100"}
+{"text": "اپنا سبق نمبر بتاؤ", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T101"}
+{"text": "آیت نمبر دو سو پچپن پڑھیں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T102"}
+{"text": "اپنا رول نمبر بتاؤ", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T103"}
+{"text": "اپنا فون بند کرو", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T104"}
+{"text": "اپنا موبائل بند کر دیں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T105"}
+{"text": "اس گروپ کو واٹس ایپ پر شیئر کریں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T106"}
+{"text": "گھر پر مشق کریں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T107"}
+{"text": "اپنا ہوم ورک بھیجیں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T108"}
+{"text": "اپنی کاپی کی تصویر بھیجو", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T109"}
+{"text": "آپ کا نام کیا ہے", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T110"}
+{"text": "آپ کا جواب صحیح ہے", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T111"}
+{"text": "ایک دو تین چار پانچ چھ سات آٹھ نو", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T112"}
+{"text": "صفر ایک دو تین چار پانچ چھ سات آٹھ نو", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T113"}
+{"text": "سورہ بقرہ میں دو سو چھیاسی آیات ہیں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T114"}
+{"text": "آج کا سبق صفحہ تیس سے شروع ہوگا", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T115"}
+{"text": "آپ مجھے سن سکتے ہیں", "lang": "ur", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T116"}
+{"text": "sabaq number do likho", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T117"}
+{"text": "apna roll number batao", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T118"}
+{"text": "apna sabaq number do", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T119"}
+{"text": "whatsapp pe homework bhejo", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T120"}
+{"text": "ghar ka kaam karke aana", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T121"}
+{"text": "apni copy ki photo bhejo", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T122"}
+{"text": "aap ka number kab aaya", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T123"}
+{"text": "dont use your mobile", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T124"}
+{"text": "apna phone band karo", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T125"}
+{"text": "aap ka naam kya hai", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T126"}
+{"text": "safha number panch kholo", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T127"}
+{"text": "aap ka sawal number kya hai", "lang": "ro", "label": "none", "pii": "", "note": "", "group": "negative", "id": "T128"}
+{"text": "one two three four five six seven", "lang": "en", "label": "none", "pii": "", "note": "children counting aloud", "group": "negative", "id": "T129"}
+{"text": "zero one two three four five six seven eight nine", "lang": "en", "label": "none", "pii": "", "note": "children counting aloud", "group": "negative", "id": "T130"}
+{"text": "tell me your number", "lang": "mixed", "label": "none", "pii": "", "note": "ambiguous: could be a roll number. Should NOT alert; logged only", "group": "ambiguous", "id": "T131"}
+{"text": "what is your number", "lang": "mixed", "label": "none", "pii": "", "note": "ambiguous: could be a roll number. Should NOT alert; logged only", "group": "ambiguous", "id": "T132"}
+{"text": "اپنا نمبر بتاؤ", "lang": "mixed", "label": "none", "pii": "", "note": "ambiguous: could be a roll number. Should NOT alert; logged only", "group": "ambiguous", "id": "T133"}
+{"text": "apna number batao", "lang": "mixed", "label": "none", "pii": "", "note": "ambiguous: could be a roll number. Should NOT alert; logged only", "group": "ambiguous", "id": "T134"}
+{"text": "kya mujy ap apna number dy sakty ha", "lang": "ro", "label": "pii", "pii": "phone", "note": "from live test 12 Nov: missed", "id": "T135"}
+{"text": "023456789347", "lang": "en", "label": "pii", "pii": "phone", "note": "from live test 12 Nov: bare mistyped number, missed", "id": "T136"}
+{"text": "mujy apna number do", "lang": "ro", "label": "pii", "pii": "phone", "note": "from live test 12 Nov", "id": "T137"}
+{"text": "apna whatsapp number bhaij do", "lang": "ro", "label": "pii", "pii": "phone", "note": "spelling variant", "id": "T138"}
+{"text": "ap ka number kya ha", "lang": "ro", "label": "none", "pii": "", "note": "ambiguous bare number + weak verb: logged only", "id": "T139"}
+{"text": "apna sabaq number bta do", "lang": "ro", "label": "none", "pii": "", "note": "class context", "id": "T140"}
+{"text": "the reference code is 20261112", "lang": "en", "label": "none", "pii": "", "note": "8 digit code, no phone context", "id": "T141"}
+{"text": "Y number is zero to zero zero one two three four five six seven", "lang": "en", "label": "pii", "pii": "phone", "note": "live test 12 Nov: 'three' heard as 'to'", "id": "T142"}
+{"text": "my number is oh tree double oh one to tree for five six seven", "lang": "en", "label": "pii", "pii": "phone", "note": "sound-alike digits", "id": "T143"}
+{"text": "give one to two students a turn", "lang": "en", "label": "none", "pii": "", "note": "'to' between number words, short", "id": "T144"}
+{"text": "read from ayah one to ayah seven", "lang": "en", "label": "none", "pii": "", "note": "range, not digits", "id": "T145"}
+{"text": "open page two to five for homework", "lang": "en", "label": "none", "pii": "", "note": "sound-alikes in normal talk", "id": "T146"}

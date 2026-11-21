@@ -1,0 +1,618 @@
+[
+{
+"id": "B001",
+"text": "hey you can text me on 0312 9876543 anytime",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B002",
+"text": "this is my personal number 03459876543 save it",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B003",
+"text": "my father's number is plus nine two three zero zero one two three four five six seven",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B004",
+"text": "whatsapp me on 0333 1112223",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B005",
+"text": "save my contact nine two three one two one two three four five six seven",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B006",
+"text": "mera mobile number hai zero teen ek do, teen char paanch, chay saat aath",
+"lang": "ro",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B007",
+"text": "میرا واٹس ایپ 03331234567 ہے نوٹ کر لو",
+"lang": "ur",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B008",
+"text": "میرا نمبر ہے صفر تین چار پانچ ایک دو تین چار پانچ چھ سات",
+"lang": "ur",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B009",
+"text": "you can mail me at hassan.ali2010@outlook.com",
+"lang": "en",
+"label": "pii",
+"pii": "email"
+},
+{
+"id": "B010",
+"text": "write down my email hassan dot ali at gmail dot com",
+"lang": "en",
+"label": "pii",
+"pii": "email"
+},
+{
+"id": "B011",
+"text": "add me on facebook my id is sara.ahmed.12",
+"lang": "en",
+"label": "pii",
+"pii": "social"
+},
+{
+"id": "B012",
+"text": "send me a request on instagram",
+"lang": "en",
+"label": "pii",
+"pii": "social"
+},
+{
+"id": "B013",
+"text": "my snapchat is sara_pk",
+"lang": "en",
+"label": "pii",
+"pii": "social"
+},
+{
+"id": "B014",
+"text": "I stay at house 7 street 12 phase 5 DHA",
+"lang": "en",
+"label": "pii",
+"pii": "address"
+},
+{
+"id": "B015",
+"text": "we live in sector F-10 near the central market",
+"lang": "en",
+"label": "pii",
+"pii": "address"
+},
+{
+"id": "B016",
+"text": "it is plot 55 block B town",
+"lang": "en",
+"label": "pii",
+"pii": "address"
+},
+{
+"id": "B017",
+"text": "do you have a phone number I can call you on",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B018",
+"text": "can you give me your mobile number please",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B019",
+"text": "what is your whatsapp number",
+"lang": "en",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B020",
+"text": "share your email id with me",
+"lang": "en",
+"label": "pii",
+"pii": "email"
+},
+{
+"id": "B021",
+"text": "which instagram id do you use, tell me your instagram",
+"lang": "en",
+"label": "pii",
+"pii": "social"
+},
+{
+"id": "B022",
+"text": "send me your pic",
+"lang": "en",
+"label": "pii",
+"pii": "photo"
+},
+{
+"id": "B023",
+"text": "could you send me a selfie",
+"lang": "en",
+"label": "pii",
+"pii": "photo"
+},
+{
+"id": "B024",
+"text": "tell me your home address",
+"lang": "en",
+"label": "pii",
+"pii": "address"
+},
+{
+"id": "B025",
+"text": "apna whatsapp number mujhe de do",
+"lang": "ro",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B026",
+"text": "apni email id bata do",
+"lang": "ro",
+"label": "pii",
+"pii": "email"
+},
+{
+"id": "B027",
+"text": "apna address likh do",
+"lang": "ro",
+"label": "pii",
+"pii": "address"
+},
+{
+"id": "B028",
+"text": "aap ka instagram id kya hai",
+"lang": "ro",
+"label": "pii",
+"pii": "social"
+},
+{
+"id": "B029",
+"text": "اپنا موبائل نمبر مجھے بتائیں",
+"lang": "ur",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B030",
+"text": "اپنا نمبر مجھے دے دیں",
+"lang": "ur",
+"label": "pii",
+"pii": "phone"
+},
+{
+"id": "B031",
+"text": "آپ کی تصویر چاہیے بھیج دیں",
+"lang": "ur",
+"label": "pii",
+"pii": "photo"
+},
+{
+"id": "B032",
+"text": "اپنا گھر کا پتہ لکھ دیں",
+"lang": "ur",
+"label": "pii",
+"pii": "address"
+},
+{
+"id": "B033",
+"text": "اپنا فیس بک آئی ڈی بتائیں",
+"lang": "ur",
+"label": "pii",
+"pii": "social"
+},
+{
+"id": "B034",
+"text": "please turn off your phone and open your books",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B035",
+"text": "your number is called, come to the front",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B036",
+"text": "the page number is forty two",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B037",
+"text": "we are on lesson number 12 today",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B038",
+"text": "recite surah number two from ayah number one",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B039",
+"text": "give me your homework tomorrow",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B040",
+"text": "send me the recording of your recitation",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B041",
+"text": "take a photo of your page and upload it to the portal",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B042",
+"text": "what is your name and what class are you in",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B043",
+"text": "I will share my screen now",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B044",
+"text": "can you see my screen",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B045",
+"text": "share the document in the class group",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B046",
+"text": "the class is on whatsapp group announcements",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B047",
+"text": "tomorrow the exam starts at 9 30",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B048",
+"text": "the book costs 2500 rupees",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B049",
+"text": "I live far from the mosque and it is hard to come early",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B050",
+"text": "my number in the register is 14",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B051",
+"text": "your roll number is on the sheet",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B052",
+"text": "tell me your favourite surah",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B053",
+"text": "give me your answer",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B054",
+"text": "mail the fee voucher to the office",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B055",
+"text": "the office address is on the website",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B056",
+"text": "the phone is on the table",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B057",
+"text": "her phone number is on the form, ask the office",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B058",
+"text": "one two three four five six seven eight nine ten eleven twelve",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B059",
+"text": "ayah two hundred and fifty five",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B060",
+"text": "sixty five thousand rupees",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B061",
+"text": "show me your recitation book",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B062",
+"text": "show me your hand if you know the answer",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B063",
+"text": "what is your problem",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B064",
+"text": "who is on instagram these days",
+"lang": "en",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B065",
+"text": "اپنی کتاب کھولیں اور صفحہ بارہ نکالیں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B066",
+"text": "آج کا سبق نمبر پندرہ ہے",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B067",
+"text": "اپنی باری کا انتظار کریں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B068",
+"text": "اپنا موبائل بند کر دیں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B069",
+"text": "آپ کا رول نمبر کیا ہے",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B070",
+"text": "ہوم ورک کی تصویر پورٹل پر اپ لوڈ کریں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B071",
+"text": "آپ کا نام کیا ہے اور کون سی کلاس میں ہیں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B072",
+"text": "فیس کی رسید دفتر میں جمع کروائیں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B073",
+"text": "دفتر کا پتہ ویب سائٹ پر موجود ہے",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B074",
+"text": "سورہ فاتحہ کی آیت نمبر دو پڑھیں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B075",
+"text": "ایک دو تین چار پانچ",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B076",
+"text": "مجھے اپنی کاپی دکھائیں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B077",
+"text": "آپ کو میری آواز آ رہی ہے",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B078",
+"text": "اپنا سبق سنائیں",
+"lang": "ur",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B079",
+"text": "apna sabaq sunao",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B080",
+"text": "apni copy dikhao",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B081",
+"text": "aap ka roll number kya hai",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B082",
+"text": "apna mobile band kar do",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B083",
+"text": "office ka address website par hai",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B084",
+"text": "homework ki photo portal par upload karo",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B085",
+"text": "kal ka sabaq safha number bees se hai",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B086",
+"text": "aap ki baari aa gayi hai",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B087",
+"text": "apna naam batao",
+"lang": "ro",
+"label": "none",
+"pii": ""
+},
+{
+"id": "B088",
+"text": "number lagao",
+"lang": "ro",
+"label": "none",
+"pii": ""
+}
+]

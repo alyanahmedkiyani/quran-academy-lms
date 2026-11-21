@@ -1,0 +1,326 @@
+[
+ {
+  "id": "L01",
+  "text": "my number is 0300 1234567",
+  "lang": "en",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": "Say each digit as a word, in short groups of 3-4 digits."
+ },
+ {
+  "id": "L02",
+  "text": "my number is zero three double zero nine eight seven six five four three",
+  "lang": "en",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": "Say each digit as a word, in short groups of 3-4 digits."
+ },
+ {
+  "id": "L03",
+  "text": "میرا نمبر صفر تین صفر صفر ایک دو تین چار پانچ چھ سات ہے",
+  "lang": "ur",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": "Say each digit as a word, in short groups of 3-4 digits."
+ },
+ {
+  "id": "L04",
+  "text": "mera number hai 0300 1234567",
+  "lang": "ro",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": "Say each digit as a word, in short groups of 3-4 digits."
+ },
+ {
+  "id": "L05",
+  "text": "my email is ali khan at gmail dot com",
+  "lang": "en",
+  "label": "pii",
+  "pii": "email",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L06",
+  "text": "my instagram is @ali_khan99",
+  "lang": "en",
+  "label": "pii",
+  "pii": "social",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L07",
+  "text": "add me on snapchat",
+  "lang": "en",
+  "label": "pii",
+  "pii": "social",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L08",
+  "text": "I live at house number 45 block C Gulshan colony",
+  "lang": "en",
+  "label": "pii",
+  "pii": "address",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L09",
+  "text": "give me your number",
+  "lang": "en",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L10",
+  "text": "what is your phone number",
+  "lang": "en",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L11",
+  "text": "can I have your whatsapp",
+  "lang": "en",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L12",
+  "text": "send me your photo",
+  "lang": "en",
+  "label": "pii",
+  "pii": "photo",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L13",
+  "text": "apna WhatsApp number bhejo",
+  "lang": "ro",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L14",
+  "text": "اپنا واٹس ایپ نمبر بھیجیں",
+  "lang": "ur",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L15",
+  "text": "آپ کا موبائل نمبر کیا ہے",
+  "lang": "ur",
+  "label": "pii",
+  "pii": "phone",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L16",
+  "text": "اپنی تصویر بھیجو",
+  "lang": "ur",
+  "label": "pii",
+  "pii": "photo",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L17",
+  "text": "اپنا پتہ بتاؤ",
+  "lang": "ur",
+  "label": "pii",
+  "pii": "address",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L18",
+  "text": "میرا پتہ یہ ہے مکان نمبر بارہ گلی پانچ",
+  "lang": "ur",
+  "label": "pii",
+  "pii": "address",
+  "group": "positive",
+  "hint": ""
+ },
+ {
+  "id": "L19",
+  "text": "open page number 25",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L20",
+  "text": "what is your roll number",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L21",
+  "text": "read ayah number 255",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L22",
+  "text": "do not use your phone during class",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L23",
+  "text": "send the homework on whatsapp",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L24",
+  "text": "I live in Lahore",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L25",
+  "text": "one two three four five six seven",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": "Count aloud like a child would."
+ },
+ {
+  "id": "L26",
+  "text": "the fee is 15000 rupees per month",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L27",
+  "text": "صفحہ نمبر پچیس کھولیں",
+  "lang": "ur",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L28",
+  "text": "اپنا فون بند کرو",
+  "lang": "ur",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L29",
+  "text": "اپنا ہوم ورک بھیجیں",
+  "lang": "ur",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L30",
+  "text": "ایک دو تین چار پانچ چھ سات آٹھ نو",
+  "lang": "ur",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": "Count aloud like a child would."
+ },
+ {
+  "id": "L31",
+  "text": "sabaq number do likho",
+  "lang": "ro",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L32",
+  "text": "apna roll number batao",
+  "lang": "ro",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L33",
+  "text": "send me a photo of your notebook",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L34",
+  "text": "show me your notebook",
+  "lang": "en",
+  "label": "none",
+  "pii": "",
+  "group": "negative",
+  "hint": ""
+ },
+ {
+  "id": "L35",
+  "text": "tell me your number",
+  "lang": "mixed",
+  "label": "none",
+  "pii": "",
+  "group": "ambiguous",
+  "hint": ""
+ },
+ {
+  "id": "L36",
+  "text": "اپنا نمبر بتاؤ",
+  "lang": "mixed",
+  "label": "none",
+  "pii": "",
+  "group": "ambiguous",
+  "hint": ""
+ }
+]

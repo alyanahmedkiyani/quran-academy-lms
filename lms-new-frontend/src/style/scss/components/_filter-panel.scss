@@ -1,0 +1,168 @@
+// Standard "Filter by" collapsible panel — shared across every list page
+// (student, teacher, parent, course, salary, ...) so the collapsible filter
+// row always looks identical: same gradient box, same labeled dropdowns,
+// same clear-all button.
+
+.filter-panel-row {
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+
+    &.collapsed {
+        max-height: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin: 0 !important;
+    }
+
+    &.expanded {
+        max-height: 320px;
+    }
+}
+
+.filter-panel-box {
+    background: linear-gradient(135deg, #f5f6ff 0%, #f0f4ff 100%);
+    border: 1.5px solid #d6d9f5;
+    border-radius: 12px;
+    padding: 14px 16px 16px;
+    position: relative;
+}
+
+.filter-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+
+    i {
+        font-size: 13px;
+        color: #2E37A4;
+    }
+
+    span.filter-panel-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: #2E37A4;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+    }
+
+    span.filter-panel-count {
+        margin-left: auto;
+        font-size: 11px;
+        color: #858D9C;
+    }
+}
+
+.sf-filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #2E37A4;
+        margin: 0;
+    }
+
+    .ant-select-selector,
+    .ant-picker,
+    .form-control,
+    .form-select {
+        border-radius: 8px !important;
+        border: 1.5px solid #c5c9ef !important;
+        background: #fff !important;
+        box-shadow: 0 1px 3px rgba(46, 55, 164, 0.08) !important;
+        transition: border-color 0.2s, box-shadow 0.2s !important;
+        height: 40px !important;
+        padding: 4px 11px !important;
+    }
+
+    .form-control:hover,
+    .form-select:hover {
+        border-color: #2E37A4 !important;
+        box-shadow: 0 1px 6px rgba(46, 55, 164, 0.15) !important;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #2E37A4 !important;
+        box-shadow: 0 0 0 3px rgba(46, 55, 164, 0.12) !important;
+    }
+
+    .ant-select-selector {
+        display: flex !important;
+        align-items: center;
+    }
+
+    .ant-select-multiple .ant-select-selector {
+        height: auto !important;
+        min-height: 40px !important;
+        padding: 2px 8px !important;
+    }
+
+    .ant-select:hover .ant-select-selector,
+    .ant-picker:hover {
+        border-color: #2E37A4 !important;
+        box-shadow: 0 1px 6px rgba(46, 55, 164, 0.15) !important;
+    }
+
+    .ant-select-focused .ant-select-selector,
+    .ant-select-open .ant-select-selector,
+    .ant-picker-focused {
+        border-color: #2E37A4 !important;
+        box-shadow: 0 0 0 3px rgba(46, 55, 164, 0.12) !important;
+    }
+
+    .ant-select-selection-placeholder {
+        color: #9da4b0 !important;
+        font-size: 13px;
+    }
+
+    .ant-select-suffix,
+    .ant-select-arrow {
+        color: #2E37A4 !important;
+        opacity: 0.7;
+    }
+
+    .ant-select:hover .ant-select-suffix,
+    .ant-select:hover .ant-select-arrow {
+        opacity: 1;
+    }
+
+    // Active filter — when a value is selected
+    .ant-select-selection-item {
+        font-weight: 600 !important;
+        color: #2E37A4 !important;
+        font-size: 13px;
+    }
+
+    .ant-select:has(.ant-select-selection-item) .ant-select-selector {
+        border-color: #2E37A4 !important;
+        background: #ecedf7 !important;
+        box-shadow: 0 0 0 3px rgba(46, 55, 164, 0.08) !important;
+    }
+}
+
+.filter-panel-clear-btn {
+    height: 40px;
+    border-radius: 8px;
+    border: 1.5px solid #EF1E1E;
+    color: #EF1E1E;
+    background: #fff5f5;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+// Filter card frame that sits above the filter panel row
+.sf-filter-card {
+    border-bottom: none !important;
+    background: #fff !important;
+    position: relative;
+    overflow: visible;
+}

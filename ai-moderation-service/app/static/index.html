@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voice PII Test App</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<header><h1>Voice PII test room</h1><span class="mute">Separate test app. Not connected to the live platform.</span><span class="sp"></span>
+<a href="/admin" target="_blank">Open admin review page</a></header>
+<main>
+<div class="card" id="joinCard"><h2>Join a test class</h2>
+<div class="grid2"><div><label>Your name</label><input id="name" value="Tester"><label>Role</label>
+<select id="role"><option value="student">Student</option><option value="teacher">Teacher</option></select>
+<label>Class room</label><input id="room" value="class-1"></div>
+<div><p class="mute">Open this page in two browser tabs (or two devices) with different names to simulate a teacher and a student in one class.
+Microphone access needs <b>http://localhost</b> or HTTPS.</p>
+<p class="mute">Audio is sent to this app's server for analysis. Use test voices only: never real children or real personal details.</p>
+<div class="row"><button class="pri" id="joinBtn">Join with microphone</button><button id="joinNoMic">Join chat only</button></div>
+<p id="joinErr" class="mute"></p></div></div></div>
+
+<div id="roomUI" hidden>
+<div class="grid2">
+<div class="card"><h2>Class chat</h2><div id="chatlog"></div>
+<div class="row" style="margin-top:8px"><input id="chatIn" placeholder="Type a message (chat is checked for personal information too)" style="flex:1"><button class="pri" id="chatSend">Send</button></div></div>
+<div class="card"><h2>Microphone and what the server heard</h2>
+<div class="row"><button id="muteBtn">Mute</button><div class="meter"><i id="lvl"></i></div><span id="peers" class="mute"></span></div>
+<p class="mute" id="modelState"></p>
+<div id="heard"></div><p class="mute">Tester view only: shows the transcript of your own voice and what the rules found. Real participants would never see this.</p></div>
+</div>
+<div class="card"><h2>Guided accuracy test</h2>
+<p class="mute">Pick a line, press <b>Start</b>, read it aloud naturally (or press <b>Send as chat</b>), then press <b>Done</b>. The result appears on the admin page under Test results.
+Lines marked <i>should not alert</i> are normal class talk. They are as important as the others.</p>
+<div id="speakBox" class="card" style="margin-bottom:10px" hidden><div class="mute" id="speakHint"></div><div class="big" id="speakText"></div><button class="pri" id="doneBtn">Done speaking</button></div>
+<div style="overflow:auto;max-height:420px"><table><thead><tr><th>#</th><th>Line to say</th><th>Expected</th><th></th></tr></thead><tbody id="cases"></tbody></table></div></div>
+</div></main>
+<script src="/static/room.js"></script></body></html>

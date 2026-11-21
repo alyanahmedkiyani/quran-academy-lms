@@ -1,0 +1,292 @@
+const express = require('express');
+const ChatMessage = require('../models/ChatMessage');
+const Student = require('../models/Student');
+const Teacher = require('../models/Teacher');
+const Admin = require('../models/Admin');
+const Parent = require('../models/Parent');
+const { Op } = require('sequelize');
+const sequelize = require("../utils/database");
+const isAuth = require('../middleware/is-auth');
+const router = express.Router();
+
+// Helper: batch-fetch sender details in 3 queries instead of N queries
+async function enrichWithSenderDetails(messages) {
+  const studentIds = [...new Set(messages.filter(m => m.senderType === 'student').map(m => m.senderId))];
+  const teacherIds = [...new Set(messages.filter(m => m.senderType === 'teacher').map(m => m.senderId))];
+  const adminIds   = [...new Set(messages.filter(m => m.senderType === 'admin').map(m => m.senderId))];
+  const parentIds  = [...new Set(messages.filter(m => m.senderType === 'parent').map(m => m.senderId))];
+
+  const [students, teachers, admins, parents] = await Promise.all([
+    studentIds.length ? Student.findAll({ where: { id: studentIds }, attributes: ['id', 'firstName', 'lastName', 'username', 'profileImg'] }) : [],
+    teacherIds.length ? Teacher.findAll({ where: { id: teacherIds }, attributes: ['id', 'firstName', 'lastName', 'username', 'imageUrl'] }) : [],
+    adminIds.length   ? Admin.findAll({ where: { id: adminIds }, attributes: ['id', 'name', 'username', 'profileImg'] }) : [],
+    parentIds.length  ? Parent.findAll({ where: { id: parentIds }, attributes: ['id', 'firstName', 'lastName', 'username', 'profileImg'] }) : [],
+  ]);
+
+  const studentMap = Object.fromEntries(students.map(s => [s.id, s.toJSON()]));
+  const teacherMap = Object.fromEntries(teachers.map(t => [t.id, t.toJSON()]));
+  const adminMap   = Object.fromEntries(admins.map(a => [a.id, a.toJSON()]));
+  const parentMap  = Object.fromEntries(parents.map(p => [p.id, p.toJSON()]));
+
+  return messages.map(msg => ({
+    ...(msg.toJSON ? msg.toJSON() : msg),
+    senderDetails:
+      msg.senderType === 'student' ? (studentMap[msg.senderId] ?? null) :
+      msg.senderType === 'teacher' ? (teacherMap[msg.senderId] ?? null) :
+      msg.senderType === 'admin'   ? (adminMap[msg.senderId] ?? null) :
+      msg.senderType === 'parent'  ? (parentMap[msg.senderId] ?? null) : null,
+  }));
+}
+
+router.get('/messages', isAuth, async (req, res) => {
+  try {
+    const messages = await ChatMessage.findAll({
+      where: { isPrivate: false },
+      order: [['createdAt', 'ASC']],
+    });
+
+    const enrichedMessages = await enrichWithSenderDetails(messages);
+    res.json({ messages: enrichedMessages });
+  } catch (error) {
+    console.error('Error fetching messages:', error);
+    res.status(500).json({ message: 'Failed to fetch messages' });
+  }
+});
+
+router.get('/private-messages/:userId/:userType', isAuth, async (req, res) => {
+  const { userId, userType } = req.params;
+  try {
+    const messages = await ChatMessage.findAll({
+      where: {
+        isPrivate: true,
+        [Op.or]: [
+          { senderId: userId, senderType: userType },
+          { receiverId: userId, receiverType: userType },
+        ],
+      },
+      order: [['createdAt', 'ASC']],
+    });
+
+    const enrichedMessages = await enrichWithSenderDetails(messages);
+    res.status(200).json(enrichedMessages);
+  } catch (error) {
+    console.error('Error fetching private messages:', error);
+    res.status(500).json({ error: 'Failed to fetch private messages' });
+  }
+});
+
+router.get('/recent-chats/:userId/:userType', isAuth, async (req, res) => {
+  const { userId, userType } = req.params;
+
+  try {
+    const recentUsers = await sequelize.query(
+      `
+        SELECT cm.*
+        FROM ChatMessages cm
+        INNER JOIN (
+          SELECT
+            CASE
+              WHEN senderId = :userId AND senderType = :userType THEN receiverId
+              ELSE senderId
+            END AS otherUserId,
+            CASE
+              WHEN senderId = :userId AND senderType = :userType THEN receiverType
+              ELSE senderType
+            END AS otherUserType,
+            MAX(createdAt) AS latestMessageTime
+          FROM ChatMessages
+          WHERE isPrivate = true
+          AND (
+            (receiverId = :userId AND receiverType = :userType)
+            OR (senderId = :userId AND senderType = :userType)
+          )
+          GROUP BY otherUserId, otherUserType
+          ORDER BY latestMessageTime DESC
+          LIMIT 100
+        ) AS latestMessages
+        ON (
+          (cm.senderId = :userId AND cm.senderType = :userType AND cm.receiverId = latestMessages.otherUserId AND cm.receiverType = latestMessages.otherUserType)
+          OR
+          (cm.receiverId = :userId AND cm.receiverType = :userType AND cm.senderId = latestMessages.otherUserId AND cm.senderType = latestMessages.otherUserType)
+        )
+        AND cm.createdAt = latestMessages.latestMessageTime
+        ORDER BY cm.createdAt DESC
+      `,
+      {
+        replacements: { userId, userType },
+        type: sequelize.QueryTypes.SELECT,
+      }
+    );
+
+    // Batch-fetch other user details: collect unique IDs per type
+    // NOTE: raw SQL returns integer columns as strings, so use parseInt() on both sides
+    const otherUserIds = recentUsers.map(msg => {
+      const isUserSender = parseInt(msg.senderId) === parseInt(userId) && msg.senderType === userType;
+      return {
+        id: isUserSender ? msg.receiverId : msg.senderId,
+        type: isUserSender ? msg.receiverType : msg.senderType,
+      };
+    });
+
+    const studentIds = [...new Set(otherUserIds.filter(u => u.type === 'student').map(u => u.id))];
+    const teacherIds = [...new Set(otherUserIds.filter(u => u.type === 'teacher').map(u => u.id))];
+    const adminIds   = [...new Set(otherUserIds.filter(u => u.type === 'admin').map(u => u.id))];
+    const parentIds  = [...new Set(otherUserIds.filter(u => u.type === 'parent').map(u => u.id))];
+
+    const [students, teachers, admins, parents] = await Promise.all([
+      studentIds.length ? Student.findAll({ where: { id: studentIds }, attributes: ['id', 'firstName', 'lastName', 'username', 'profileImg'] }) : [],
+      teacherIds.length ? Teacher.findAll({ where: { id: teacherIds }, attributes: ['id', 'firstName', 'lastName', 'username', 'imageUrl'] }) : [],
+      adminIds.length   ? Admin.findAll({ where: { id: adminIds }, attributes: ['id', 'name', 'username', 'profileImg'] }) : [],
+      parentIds.length  ? Parent.findAll({ where: { id: parentIds }, attributes: ['id', 'firstName', 'lastName', 'username'] }) : [],
+    ]);
+
+    const studentMap = Object.fromEntries(students.map(s => [s.id, { ...s.toJSON(), userType: 'student' }]));
+    const teacherMap = Object.fromEntries(teachers.map(t => [t.id, { ...t.toJSON(), userType: 'teacher' }]));
+    const adminMap   = Object.fromEntries(admins.map(a => [a.id, { ...a.toJSON(), userType: 'admin' }]));
+    const parentMap  = Object.fromEntries(parents.map(p => [p.id, { ...p.toJSON(), userType: 'parent' }]));
+
+    const finalResponse = recentUsers.map(msg => {
+      const isUserSender = parseInt(msg.senderId) === parseInt(userId) && msg.senderType === userType;
+      const otherId   = isUserSender ? msg.receiverId : msg.senderId;
+      const otherType = isUserSender ? msg.receiverType : msg.senderType;
+
+      const otherUserDetails =
+        otherType === 'student' ? (studentMap[otherId] ?? null) :
+        otherType === 'teacher' ? (teacherMap[otherId] ?? null) :
+        otherType === 'admin'   ? (adminMap[otherId]   ?? null) :
+        otherType === 'parent'  ? (parentMap[otherId]  ?? null) : null;
+
+      return { ...msg, otherUserDetails };
+    });
+
+    res.status(200).json(finalResponse);
+  } catch (error) {
+    console.error('Error fetching recent chats:', error);
+    res.status(500).json({ error: 'Failed to fetch recent chats' });
+  }
+});
+
+// ---------------------------------------------------------------------------
+// GET /api/chat/users — role-filtered user list for the "New Conversation" picker
+// Rules:
+//   admin   → everyone
+//   teacher → admins only
+//   student → admins + their own linked parent
+//   parent  → admins + their linked students
+// ---------------------------------------------------------------------------
+router.get('/users', isAuth, async (req, res) => {
+  try {
+    const { userType, userId: qUserId } = req.query;
+    const callerId = parseInt(qUserId) || req.userId;
+
+    const toAdmin   = a => ({ id: a.id, displayName: a.name,                                         username: a.username, userType: 'admin',   avatarUrl: null });
+    const toTeacher = t => ({ id: t.id, displayName: `${t.firstName} ${t.lastName||''}`.trim(),      username: t.username, userType: 'teacher', avatarUrl: t.imageUrl || null });
+    const toStudent = s => ({ id: s.id, displayName: `${s.firstName} ${s.lastName||''}`.trim(),      username: s.username, userType: 'student', avatarUrl: s.profileImg || null });
+    const toParent  = p => ({ id: p.id, displayName: `${p.firstName} ${p.lastName||''}`.trim(),      username: p.username, userType: 'parent',  avatarUrl: null });
+
+    let normalised = [];
+
+    if (userType === 'admin') {
+      // Admin can chat with everyone
+      const [students, teachers, admins, parents] = await Promise.all([
+        Student.findAll({ attributes: ['id', 'firstName', 'lastName', 'username', 'profileImg'] }),
+        Teacher.findAll({ attributes: ['id', 'firstName', 'lastName', 'username', 'imageUrl'] }),
+        Admin.findAll({ attributes: ['id', 'name', 'username'] }),
+        Parent.findAll({ attributes: ['id', 'firstName', 'lastName', 'username'] }),
+      ]);
+      normalised = [...students.map(toStudent), ...teachers.map(toTeacher), ...admins.map(toAdmin), ...parents.map(toParent)];
+
+    } else if (userType === 'teacher') {
+      // Teacher → admin only
+      const admins = await Admin.findAll({ attributes: ['id', 'name', 'username'] });
+      normalised = admins.map(toAdmin);
+
+    } else if (userType === 'student') {
+      // Student → admins + their own parent (if linked)
+      const [admins, student] = await Promise.all([
+        Admin.findAll({ attributes: ['id', 'name', 'username'] }),
+        Student.findOne({
+          where: { id: callerId },
+          attributes: ['id', 'parentId'],
+          include: [{ model: Parent, as: 'parent', attributes: ['id', 'firstName', 'lastName', 'username'] }],
+        }),
+      ]);
+      normalised = admins.map(toAdmin);
+      if (student && student.parent) normalised.push(toParent(student.parent));
+
+    } else if (userType === 'parent') {
+      // Parent → admins + their linked students
+      const [admins, students] = await Promise.all([
+        Admin.findAll({ attributes: ['id', 'name', 'username'] }),
+        Student.findAll({ where: { parentId: callerId }, attributes: ['id', 'firstName', 'lastName', 'username', 'profileImg'] }),
+      ]);
+      normalised = [...admins.map(toAdmin), ...students.map(toStudent)];
+
+    } else {
+      // Fallback: admins only
+      const admins = await Admin.findAll({ attributes: ['id', 'name', 'username'] });
+      normalised = admins.map(toAdmin);
+    }
+
+    res.json({ users: normalised });
+  } catch (error) {
+    console.error('Error fetching chat users:', error);
+    res.status(500).json({ message: 'Failed to fetch users' });
+  }
+});
+
+// GET /api/chat/unread-counts?userId=&userType=
+// Returns { counts: { "teacher-5": 3, "admin-1": 1, ... } }
+router.get('/unread-counts', isAuth, async (req, res) => {
+  try {
+    const { userId, userType } = req.query;
+    if (!userId || !userType) return res.status(400).json({ message: 'userId and userType required' });
+
+    const messages = await ChatMessage.findAll({
+      where: {
+        receiverId: userId,
+        receiverType: userType,
+        isPrivate: true,
+        isRead: false,
+      },
+      attributes: ['senderId', 'senderType'],
+    });
+
+    const counts = {};
+    messages.forEach(({ senderId, senderType }) => {
+      const key = `${senderType}-${senderId}`;
+      counts[key] = (counts[key] ?? 0) + 1;
+    });
+
+    res.json({ counts });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// POST /api/chat/mark-read
+// Body: { userId, userType, senderId, senderType }
+// Marks all private messages from that sender to this user as read
+router.post('/mark-read', isAuth, async (req, res) => {
+  try {
+    const { userId, userType, senderId, senderType } = req.body;
+    await ChatMessage.update(
+      { isRead: true },
+      {
+        where: {
+          receiverId: userId,
+          receiverType: userType,
+          senderId,
+          senderType,
+          isPrivate: true,
+          isRead: false,
+        },
+      }
+    );
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+module.exports = router;

@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin review - Voice PII test</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<header><h1>Admin review</h1><span class="mute">Alerts are reported only. Nothing is blocked or switched off automatically.</span><span class="sp"></span>
+<a href="/" target="_blank">Open test room</a><button class="bad" id="resetBtn">Delete all test data</button></header>
+<main>
+<div class="card"><h2>System</h2><div class="kpi" id="kpi"></div></div>
+<div class="card"><div class="tabs"><button data-t="alerts" class="on">Alerts</button><button data-t="live">Live transcript</button><button data-t="eval">Test results</button></div>
+<div id="alerts"></div><div id="live" hidden><div style="max-height:520px;overflow:auto" id="liveBody"></div></div><div id="eval" hidden></div></div>
+</main><script src="/static/admin.js"></script></body></html>

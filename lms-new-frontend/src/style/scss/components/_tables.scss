@@ -1,0 +1,296 @@
+//
+// tables.scss
+//
+
+@use "../variables" as *;
+@use "../utils/mixins" as *;
+@use "sass:map";
+
+.table{
+    background-color: $white;
+    margin-bottom: 0 !important;
+    thead{
+        tr{
+            th {
+                font-weight: $font-weight-semibold;
+                padding: 12px 16px;
+                color: $heading-color;
+            }
+        }
+    }
+    tbody {
+        tr{
+            td{
+                padding: 12px 16px 12px 16px !important; 
+                color: $body-color;
+            }
+        }
+        td {
+            vertical-align: middle;
+        }
+    }
+}
+
+th {
+    font-weight: $font-weight-semibold;
+    color: $gray-900;
+}
+
+.thead-sm {
+    > * > * {
+        padding: 0.5rem 0.5rem !important;
+    }
+}
+.table.table-dark > :not(caption) > * > * {
+    background-color: #0B0D0E !important;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+.table-custom {
+    tfoot > tr > th:first-child, 
+    thead > tr > th:first-child, 
+    tr th:first-child, 
+    tr td:first-child {
+        padding-left: 1.125rem !important;
+    }
+
+    tfoot > tr > th:last-child, 
+    thead > tr > th:last-child, 
+    tr th:last-child, 
+    tr td:last-child {
+        padding-right: 1.125rem !important;
+    }
+}
+
+// Tables fluid
+.table-nowrap {
+
+    th,
+    td {
+        white-space: nowrap;
+        color: $gray-600;
+    }
+}
+.table tbody th {
+    vertical-align: middle;
+    padding: 12px 16px 12px 16px !important;
+}
+.table-light th {
+    background: $light !important;
+}
+.action-item > a {
+    width: 22px;
+    height: 22px;
+    border: 1px solid $border-color;
+    border-radius: 7px;
+    color: $gray-500;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $box-shadow;
+}
+
+.table-header{
+    padding: 8px 16px;
+}
+
+.table-search {
+    margin-bottom: 20px;
+}
+.table.dataTable th {
+    padding: 8px 16px;
+}
+.search-input {
+    input {
+        font-size: 12px;
+    }
+    .btn-searchset {
+        border-radius: 50px;
+    }
+}
+
+table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_desc_disabled:before {
+    right: 5px !important;
+    content: "\ea1d" !important;
+    font-family: "tabler-icons";
+    top: 50% !important;
+    color: var(--gray-900) !important;
+    font-size: 12px !important;
+    opacity: 1 !important;
+    position: absolute;
+    font-weight: 400;
+    line-height: 1px !important;
+}
+
+table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:after {
+    right: 0 !important;
+    content: "\ea1a" !important;
+    font-family: "tabler-icons";
+    bottom: 12px !important;
+    color: var(--gray-900) !important;
+    font-size: 12px !important;
+    opacity: 1 !important;
+    position: absolute;
+    font-weight: 400;
+    line-height: 1px !important;
+}
+.table-dark th {
+    color: $white !important;
+}
+
+// ─── Responsive table — stack-on-mobile ───────────────────────────────────────
+// Add class="table-stack" to <table> and data-label="Column Name" to every <td>
+// On mobile (≤767px) the thead is hidden; each row becomes a bordered card; each
+// cell shows its column label as a pseudo-element on the left.
+// ─────────────────────────────────────────────────────────────────────────────
+.table-stack {
+    @media (max-width: 767.98px) {
+        // Hide column headers — labels are shown via data-label on each td
+        thead {
+            display: none !important;
+        }
+
+        // Each row becomes its own card
+        tbody tr {
+            display: block;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+            background: #fff;
+
+            &.table-danger {
+                background-color: #fff5f5;
+                border-color: #f5c6cb;
+            }
+        }
+
+        // Each cell becomes a flex row: label on left, value on right
+        tbody td {
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 12px !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            min-height: 42px;
+            white-space: normal !important;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            &::before {
+                content: attr(data-label);
+                font-weight: 600;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                color: #6b7280;
+                flex: 0 0 auto;
+                min-width: 90px;
+                margin-right: 8px;
+            }
+
+            // Ensure child elements align properly
+            > * {
+                flex-shrink: 1;
+                min-width: 0;
+            }
+        }
+    }
+}
+
+// ─── Tablet: prevent header text from wrapping ────────────────────────────────
+.table-responsive {
+    @media (max-width: 991.98px) {
+        thead th {
+            white-space: nowrap;
+        }
+    }
+}
+
+// Dark-mode support for table-stack cards
+[data-bs-theme="dark"] .table-stack {
+    @media (max-width: 767.98px) {
+        tbody tr {
+            background: var(--pr-secondary-bg);
+            border-color: var(--pr-border-color);
+
+            &.table-danger {
+                background-color: rgba(220, 53, 69, 0.1);
+            }
+        }
+
+        tbody td {
+            border-color: rgba(255, 255, 255, 0.05);
+            &::before {
+                color: #9ca3af;
+            }
+        }
+    }
+}
+
+// Responsive list-page filter toolbar (student/teacher/parent lists)
+.student-list-filters,
+.teacher-list-filters,
+.parent-list-filters {
+  @media (max-width: 767.98px) {
+    // Nav pills (status/shift tabs) — allow wrapping, don't overflow
+    .nav-pills {
+      flex-wrap: wrap !important;
+      .nav-item { flex: 1 1 auto; }
+      .nav-link { white-space: nowrap; font-size: 12px; padding: 6px 10px; }
+    }
+
+    // Search row fills full width and wraps internally
+    .ant-input-affix-wrapper {
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+  }
+}
+
+// Ant Design table — smooth touch scroll on mobile/tablet
+.ant-table-wrapper {
+  .ant-table-body,
+  .ant-table-content {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto !important;
+  }
+
+  @media (max-width: 767.98px) {
+    .ant-table-thead > tr > th {
+      white-space: nowrap;
+      font-size: 12px;
+    }
+    .ant-table-tbody > tr > td {
+      font-size: 13px;
+    }
+  }
+}
+
+.border-primary {
+  thead {
+    tr {
+      th {
+        border-color: $primary !important;
+      }
+    }
+  }
+}
+.border-success {
+  thead {
+    tr {
+      th {
+        border-color: $success !important;
+      }
+    }
+  }
+}
+@each $state in map.keys($theme-colors) {
+    .table > :not(caption) > .table-#{$state} > * {
+        background-color: var(--#{$state});
+        border-color: rgb(var(--#{$state}-rgb), 0.1);
+        color: #fff;
+    }
+}

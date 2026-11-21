@@ -1,0 +1,86 @@
+name: Deploy Backend to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            cd /var/www/lms-backend
+
+            # ── Write .env from GitHub Secrets ──────────────────────────────
+            cat > .env << 'ENVEOF'
+            NODE_ENV=production
+
+            # JWT
+            JWT_SECRET=${{ secrets.JWT_SECRET }}
+
+            # Database
+            DB_HOST=${{ secrets.DB_HOST }}
+            DB_NAME=${{ secrets.DB_NAME }}
+            DB_USER=${{ secrets.DB_USER }}
+            DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+            DB_USER_PROD=${{ secrets.DB_USER_PROD }}
+            DB_PASSWORD_PROD=${{ secrets.DB_PASSWORD_PROD }}
+
+            # CORS
+            CORS_ORIGIN_DEV=${{ secrets.CORS_ORIGIN_DEV }}
+            CORS_ORIGIN_PROD=${{ secrets.CORS_ORIGIN_PROD }}
+
+            # SSL certificate paths
+            SSL_KEY_PATH=${{ secrets.SSL_KEY_PATH }}
+            SSL_CERT_PATH=${{ secrets.SSL_CERT_PATH }}
+
+            # Ports
+            HTTP_PORT=${{ secrets.HTTP_PORT }}
+            HTTPS_PORT=${{ secrets.HTTPS_PORT }}
+
+            # Admin creation (disable in production)
+            ALLOW_AUTO_ADMIN_CREATION=false
+
+            # Calling App (MiroTalk SFU)
+            CALLING_APP_URL=${{ secrets.CALLING_APP_URL }}
+            CALLING_APP_API_URL=${{ secrets.CALLING_APP_API_URL }}
+            CALLING_APP_API_SECRET=${{ secrets.CALLING_APP_API_SECRET }}
+            LMS_API_URL=${{ secrets.LMS_API_URL }}
+            ENVEOF
+
+            # ── Pull latest code (force-reset to avoid merge conflicts) ────────
+            git fetch origin
+            git reset --hard origin/main
+
+            # ── Install/update dependencies ──────────────────────────────────
+            # Use pnpm + the committed lockfile: pinned, reproducible versions,
+            # and postinstall scripts are blocked unless explicitly allowlisted
+            # (npm install with no lockfile re-resolves everything from the
+            # registry on every deploy and runs every postinstall unrestricted).
+            command -v pnpm >/dev/null 2>&1 || npm install -g pnpm
+            pnpm install --prod --frozen-lockfile
+
+            # ── Restart with PM2 (pass critical vars explicitly to avoid cache issues) ──
+            if pm2 describe lms-backend > /dev/null 2>&1; then
+              NODE_ENV=production DB_USER=${{ secrets.DB_USER_PROD }} DB_PASSWORD=${{ secrets.DB_PASSWORD_PROD }} DB_NAME=${{ secrets.DB_NAME }} DB_HOST=${{ secrets.DB_HOST }} pm2 restart lms-backend --update-env
+            else
+              NODE_ENV=production DB_USER=${{ secrets.DB_USER_PROD }} DB_PASSWORD=${{ secrets.DB_PASSWORD_PROD }} DB_NAME=${{ secrets.DB_NAME }} DB_HOST=${{ secrets.DB_HOST }} pm2 start app.js --name lms-backend
+            fi
+
+            pm2 save
+
+            # ── Verify ───────────────────────────────────────────────────────
+            pm2 status
+            pm2 logs lms-backend --lines 20 --nostream
